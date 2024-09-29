@@ -1,5 +1,12 @@
 import axios from "axios";
 import { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Analysis } from "./pages/Analysis";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { About } from "./pages/About";
+import { Contact } from "./pages/Contact";
 import "./App.css";
 
 function App() {
@@ -10,7 +17,19 @@ function App() {
             .catch((error) => console.error("Error fetching data:", error));
     }, []);
 
-    return <div className="App"></div>;
+    return (
+        <Router>
+            <Header />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/analysis" element={<Analysis />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                {/* Add other routes as needed */}
+            </Routes>
+            <Footer />
+        </Router>
+    );
 }
 
 export default App;

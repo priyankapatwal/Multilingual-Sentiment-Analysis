@@ -1,0 +1,16 @@
+.contact {
+    padding: 20px;
+    text-align: center;
+}
+
+.contact h1 {
+    margin-bottom: 20px;
+}
+
+.contact h2 {
+    margin: 20px 0 10px;
+}
+
+.contact p {
+    margin: 10px 0;
+}
