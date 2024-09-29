@@ -5,7 +5,7 @@ export function About() {
         <div className="about">
             <h1>About Us</h1>
             <p>
-                Welcome to Sentient Analysis! We are dedicated to providing
+                Welcome to Sentiment Analysis! We are dedicated to providing
                 insightful analyses and tools for understanding artificial
                 intelligence and its impact on society. Our mission is to help
                 users navigate the complexities of AI technologies and make

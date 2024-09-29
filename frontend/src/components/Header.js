@@ -4,7 +4,7 @@ import "./Header.css";
 export function Header() {
     return (
         <header className="header">
-            <h1>Sentient Analysis</h1>
+            <h1>Sentiment Analysis</h1>
             <nav>
                 <ul>
                     <li>

@@ -4,7 +4,7 @@ export function Footer() {
     return (
         <footer className="footer">
             <p>
-                &copy; {new Date().getFullYear()} Sentient Analysis. All rights
+                &copy; {new Date().getFullYear()} Sentiment Analysis. All rights
                 reserved.
             </p>
             <div className="footer-links">
