@@ -7,19 +7,22 @@ export function Analysis() {
     const [analysisResult, setAnalysisResult] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const handleInputChange = (e) => {
+    const handleInputChange = function (e) {
         setInputText(e.target.value);
     };
 
-    const handleAnalyze = async () => {
+    const handleAnalyze = async function () {
         if (!inputText) return;
 
         setLoading(true);
         try {
             // Replace with your actual API endpoint
-            const response = await axios.post("/api/analyze", {
-                text: inputText,
-            });
+            const response = await axios.post(
+                "http://127.0.0.1:8000/api/analyze",
+                {
+                    text: inputText,
+                }
+            );
             setAnalysisResult(response.data);
         } catch (error) {
             console.error("Error during analysis:", error);
