@@ -31,6 +31,7 @@ export function Analysis() {
         }
     };
 
+    console.log(analysisResult);
     return (
         <div className="analysis">
             <h1>Check Your Text's Sentiment Instantly</h1>
@@ -50,14 +51,19 @@ export function Analysis() {
                 <div className="result">
                     <h2>Analysis Results</h2>
                     <p>
-                        <strong>Sentiment:</strong> {analysisResult.sentiment}
+                        <strong>Sentiment:</strong>{" "}
+                        {analysisResult.sentiment === "NEGATIVE"
+                            ? "Negative"
+                            : analysisResult.sentiment === "POSITIVE"
+                            ? "Positive"
+                            : ""}
                     </p>
                     <p>
-                        <strong>Score:</strong> {analysisResult.score}
+                        <strong>Confidence score:</strong>{" "}
+                        {analysisResult.score.toFixed(3)}
                     </p>
                     <p>
-                        <strong>Detailed Feedback:</strong>{" "}
-                        {analysisResult.feedback}
+                        <strong>Feedback:</strong> {analysisResult.feedback}
                     </p>
                 </div>
             )}
