@@ -6,6 +6,7 @@ export function Analysis() {
     const [inputText, setInputText] = useState("");
     const [analysisResult, setAnalysisResult] = useState(null);
     const [loading, setLoading] = useState(false);
+    // const confidence = analysisResult.score
 
     const handleInputChange = function (e) {
         setInputText(e.target.value);
@@ -31,6 +32,18 @@ export function Analysis() {
         }
     };
 
+    const formatScore = (score) => {
+        if (score >= 0.9) {
+            return "Highly Certain";
+        } else if (score >= 0.7) {
+            return "Fairly Certain";
+        } else if (score >= 0.5) {
+            return "Somewhat Certain";
+        } else {
+            return "Uncertain";
+        }
+    };
+
     return (
         <div className="analysis">
             <h1>Check Your Text's Sentiment Instantly</h1>
@@ -50,19 +63,16 @@ export function Analysis() {
                 <div className="result">
                     <h2>Analysis Results</h2>
                     <p>
-                        <strong>Sentiment:</strong>{" "}
-                        {analysisResult.sentiment === "NEGATIVE"
+                        <strong>Sentiment feeling:</strong>{" "}
+                        {analysisResult.sentiment === "negative"
                             ? "Negative"
-                            : analysisResult.sentiment === "POSITIVE"
+                            : analysisResult.sentiment === "positive"
                             ? "Positive"
-                            : ""}
+                            : "Neutral"}
                     </p>
                     <p>
                         <strong>Confidence score:</strong>{" "}
-                        {analysisResult.score.toFixed(3)}
-                    </p>
-                    <p>
-                        <strong>Feedback:</strong> {analysisResult.feedback}
+                        {formatScore(analysisResult.score)}
                     </p>
                 </div>
             )}
