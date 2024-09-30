@@ -1,15 +1,35 @@
 .about {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
     padding: 20px;
-    text-align: center;
+    text-align: justify;
+    font-size: large;
 }
 
 .about h1 {
     color: #333;
+    text-align: center;
 }
 
 .about p {
     margin: 15px 0;
     line-height: 1.6;
+}
+
+/* Add media query for smartphones */
+@media (max-width: 600px) {
+    .about {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        padding: 10px;
+        font-size: medium;
+    }
+
+    .about h1 {
+        font-size: 1.5rem; /* Adjust heading size for smaller screens */
+    }
+
+    .about p {
+        line-height: 1.4;
+    }
 }

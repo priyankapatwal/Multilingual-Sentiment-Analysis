@@ -31,7 +31,6 @@ export function Analysis() {
         }
     };
 
-    console.log(analysisResult);
     return (
         <div className="analysis">
             <h1>Check Your Text's Sentiment Instantly</h1>

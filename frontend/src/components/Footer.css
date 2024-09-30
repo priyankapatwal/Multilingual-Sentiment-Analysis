@@ -2,11 +2,11 @@
     background-color: #282c34;
     color: white;
     text-align: center;
-    padding: 20px;
     bottom: 0;
     width: 100%;
     position: fixed;
     bottom: 0;
+    padding-bottom: 1rem;
 }
 
 .footer a {
