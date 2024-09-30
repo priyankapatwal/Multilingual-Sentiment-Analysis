@@ -1,10 +1,9 @@
 from fastapi.middleware.cors import CORSMiddleware
-
-# backend/app.py
 from fastapi import FastAPI
 from pydantic import BaseModel
-from sentiment_analysis import analyze_sentiment
+from transformers import pipeline
 
+# Initialize the FastAPI app
 app = FastAPI()
 
 # Add the CORS middleware
@@ -16,17 +15,23 @@ app.add_middleware(
     allow_headers=["*"],  # Allow all headers (authorization, content-type, etc.)
 )
 
+# Load the sentiment analysis pipeline
+sentiment_pipeline = pipeline("sentiment-analysis")
+
+# Define the input model
 class TextInput(BaseModel):
     text: str
+
+@app.post("/api/analyze")
+async def analyze(text_input: TextInput):
+    # Use the sentiment analysis pipeline
+    result = sentiment_pipeline(text_input.text)[0]  # Get the first result
+    sentiment = result['label']  # e.g., "POSITIVE" or "NEGATIVE"
+    score = result['score']  # Probability score
+    feedback = "Text analyzed successfully." 
+    
+    return {"sentiment": sentiment, "score": score, "feedback": feedback}
 
 @app.get("/")
 async def root():
     return {"message": "Welcome to the Sentiment Analysis API"}
-
-@app.post("/api/analyze")
-async def analyze(text_input: TextInput):
-    sentiment, score, feedback = analyze_sentiment(text_input.text)
-    return {"sentiment": sentiment, "score": score, "feedback": feedback}
-
-result = analyze_sentiment("I love programming!")
-print(result)
