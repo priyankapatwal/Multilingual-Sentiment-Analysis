@@ -33,16 +33,18 @@ export function Analysis() {
 
     return (
         <div className="analysis">
-            <h1>Sentiment Analysis</h1>
-            <textarea
-                value={inputText}
-                onChange={handleInputChange}
-                rows="5"
-                placeholder="Enter text for analysis..."
-            />
-            <button onClick={handleAnalyze} disabled={loading}>
-                {loading ? "Analyzing..." : "Analyze"}
-            </button>
+            <h1>Check Your Text's Sentiment Instantly</h1>
+            <div className="sentiment">
+                <textarea
+                    value={inputText}
+                    onChange={handleInputChange}
+                    rows="5"
+                    placeholder="Enter text for analysis..."
+                />
+                <button onClick={handleAnalyze} disabled={loading}>
+                    {loading ? "Analyzing..." : "Analyze"}
+                </button>
+            </div>
 
             {analysisResult && (
                 <div className="result">
