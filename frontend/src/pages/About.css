@@ -6,6 +6,11 @@
     font-size: large;
 }
 
+.about ul {
+    padding: 0;
+    margin: 1rem;
+}
+
 .about h1 {
     color: #333;
     text-align: center;

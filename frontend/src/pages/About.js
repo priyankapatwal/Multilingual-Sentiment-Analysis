@@ -23,15 +23,16 @@ export function About() {
                     APIs.
                 </li>
                 <li>
-                    <strong>Hugging Face Transformers</strong>: A pre-trained
-                    sentiment analysis model from Hugging Face is used to
-                    interpret the text, providing accurate sentiment and
-                    probability scores based on the input.
+                    <strong>Sentiment Analysis Model</strong>: The app uses a
+                    pre-trained sentiment analysis model from Hugging Face,
+                    which interprets text and provides sentiment results along
+                    with a confidence score. The app supports multiple
+                    languages.
                 </li>
                 <li>
-                    <strong>CORS Middleware</strong>: Ensures secure
-                    communication between the frontend and backend, especially
-                    when hosted on different servers.
+                    <strong>Local Storage</strong>: Analysis history is stored
+                    securely in the browser using local storage, meaning no data
+                    is sent to external servers, and no login is required.
                 </li>
             </ul>
             <p>
