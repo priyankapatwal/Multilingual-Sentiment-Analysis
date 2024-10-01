@@ -11,10 +11,13 @@ export function Header() {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/about">About</Link>
+                        <Link to="/analysis">Analyze</Link>
                     </li>
                     <li>
-                        <Link to="/contact">Contact</Link>
+                        <Link to="/history">History</Link>
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link>
                     </li>
                 </ul>
             </nav>

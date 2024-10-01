@@ -1,15 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
 import "./Analysis.css";
+import { formatScore, capitalizeFirstLetter } from "../App";
 
 export function Analysis() {
     const [inputText, setInputText] = useState("");
     const [analysisResult, setAnalysisResult] = useState(null);
     const [loading, setLoading] = useState(false);
-    // const confidence = analysisResult.score
 
     const handleInputChange = function (e) {
-        setInputText(e.target.value);
+        setInputText(capitalizeFirstLetterOfSentences(e.target.value));
     };
 
     const handleAnalyze = async function () {
@@ -25,6 +25,11 @@ export function Analysis() {
                 }
             );
             setAnalysisResult(response.data);
+            storeHistory(
+                inputText,
+                response.data.sentiment,
+                response.data.score
+            );
         } catch (error) {
             console.error("Error during analysis:", error);
         } finally {
@@ -32,17 +37,29 @@ export function Analysis() {
         }
     };
 
-    const formatScore = (score) => {
-        if (score >= 0.9) {
-            return "Highly Certain";
-        } else if (score >= 0.7) {
-            return "Fairly Certain";
-        } else if (score >= 0.5) {
-            return "Somewhat Certain";
-        } else {
-            return "Uncertain";
-        }
+    // Store analysis results in local storage
+    const storeHistory = (text, sentiment, score) => {
+        let history = JSON.parse(localStorage.getItem("analysisHistory")) || [];
+        const newEntry = { text, sentiment, score };
+        history.push(newEntry);
+        localStorage.setItem("analysisHistory", JSON.stringify(history));
     };
+
+    // Capitalize first letter of first word in every sentence of the paragrapth
+    function capitalizeFirstLetterOfSentences(inputText) {
+        if (!inputText) return;
+
+        // Split the text into sentences using regex to identify end of sentences (., ?, !)
+        const sentences = inputText.match(/[^.!?]+[.!?]*\s*/g);
+
+        // Capitalize the first letter of each sentence
+        const capitalizedSentences = sentences.map((sentence) => {
+            return sentence.charAt(0).toUpperCase() + sentence.slice(1);
+        });
+
+        // Join the sentences back into a single paragraph
+        return capitalizedSentences.join("");
+    }
 
     return (
         <div className="analysis">
@@ -64,15 +81,12 @@ export function Analysis() {
                     <h2>Analysis Results</h2>
                     <p>
                         <strong>Sentiment feeling:</strong>{" "}
-                        {analysisResult.sentiment === "negative"
-                            ? "Negative"
-                            : analysisResult.sentiment === "positive"
-                            ? "Positive"
-                            : "Neutral"}
+                        {capitalizeFirstLetter(analysisResult.sentiment)}
                     </p>
                     <p>
                         <strong>Confidence score:</strong>{" "}
-                        {formatScore(analysisResult.score)}
+                        {formatScore(analysisResult.score)} (
+                        {analysisResult.score.toFixed(3)})
                     </p>
                 </div>
             )}

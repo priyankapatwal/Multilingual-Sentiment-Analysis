@@ -1,0 +1,20 @@
+.history {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
+}
+
+.result {
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    list-style-type: none;
+}
+
+.history ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}

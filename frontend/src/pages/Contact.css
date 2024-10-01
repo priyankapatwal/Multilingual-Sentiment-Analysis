@@ -1,6 +1,7 @@
 .contact {
     padding: 20px;
     text-align: center;
+    font-size: large;
 }
 
 .contact h1 {
@@ -13,4 +14,13 @@
 
 .contact p {
     margin: 10px 0;
+}
+
+/* Add media query for smartphones */
+@media (max-width: 600px) {
+    .contact {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: medium;
+    }
 }
