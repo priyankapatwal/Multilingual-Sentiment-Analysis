@@ -20,10 +20,10 @@ A full-stack web application designed to analyze the sentiment of user-inputted 
 
 ## Features
 
+- **Multilingual Sentiment Analysis**: Supports sentiment analysis in multiple languages
 - **Real-Time Sentiment Analysis**: Analyze the sentiment of a given text in real-time, providing instant feedback.
 - **Confidence Scoring**: Display a formatted confidence score for the analyzed sentiment.
 - **History Tracking**: Allows users to view previously analyzed texts and their corresponding sentiments.
-- **Full-Stack Architecture**: Built using React for the frontend and FastAPI for the backend
 - **Responsive Design**: The interface is fully optimized for both desktop and mobile devices.
 
 ## Usage
