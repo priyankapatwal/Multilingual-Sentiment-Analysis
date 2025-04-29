@@ -68,7 +68,7 @@ export function Analysis() {
                 <textarea
                     value={inputText}
                     onChange={handleInputChange}
-                    rows="5"
+                    rows="1"
                     placeholder="Enter text for analysis..."
                 />
                 <button onClick={handleAnalyze} disabled={loading}>

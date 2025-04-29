@@ -5,7 +5,7 @@ export function Footer() {
     return (
         <footer className="footer">
             <p>
-                &copy; {new Date().getFullYear()} Horlescu Adrian. All rights
+                &copy; {new Date().getFullYear()} priyankapatwal. All rights
                 reserved.
             </p>
             <div className="footer-links">

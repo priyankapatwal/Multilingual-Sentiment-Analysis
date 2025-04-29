@@ -52,7 +52,8 @@ export function History() {
                     <div className="summary">
                         <strong>Overall Sentiment:</strong>{" "}
                         {capitalizeFirstLetter(overallSentiment)}
-                        <br />
+                        <br/>
+                        
                         <strong>Overall Confidence Score:</strong>{" "}
                         {formatScore(averageScore)} ({averageScore})
                     </div>

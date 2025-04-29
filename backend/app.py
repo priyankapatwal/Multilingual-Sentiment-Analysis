@@ -16,7 +16,7 @@ app.add_middleware(
 )
 
 # Load the multilingual sentiment analysis pipeline
-sentiment_pipeline = pipeline("sentiment-analysis", model="lxyuan/distilbert-base-multilingual-cased-sentiments-student")
+sentiment_pipeline = pipeline("sentiment-analysis", model="nlptown/bert-base-multilingual-uncased-sentiment")
 
 # Define the input model
 class TextInput(BaseModel):
@@ -26,11 +26,21 @@ class TextInput(BaseModel):
 async def analyze(text_input: TextInput):
     # The pipeline can handle multiple languages, so we can use the same one for any language
     result = sentiment_pipeline(text_input.text)[0]  # Get the first result
-    sentiment = result['label']  # e.g., "POSITIVE" or "NEGATIVE"
+    label = result['label']  # e.g., "POSITIVE" or "NEGATIVE"
     score = result['score']  # Probability score
-    feedback = "Text analyzed successfully."
-    
-    return {"sentiment": sentiment, "score": score, "feedback": feedback}
+    stars = int(label.split()[0])
+    if stars <= 2:
+        sentiment = "NEGATIVE"
+    elif stars == 3:
+        sentiment = "NEUTRAL"
+    else:
+        sentiment = "POSITIVE"
+
+    return {
+        "sentiment": sentiment,
+        "score": round(score, 4),
+        "feedback": "Text analyzed successfully."
+    }
 
 @app.get("/")
 async def root():
