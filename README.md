@@ -79,7 +79,7 @@ uvicorn main:app --reload
 For any inquiries or feedback, feel free to reach out via:
 
 - Email: priyankapatwal789@gmail.com, niharikarwt811@gmail.com
-- Linkedin [Priyanka Patwal]((https://www.linkedin.com/in/priyanka-p-72a0b525b) [Niharika Rawat](https://www.linkedin.com/in/niharika-rawat-0776a8280/)
+- Linkedin [Priyanka Patwal] (https://www.linkedin.com/in/priyanka-p-72a0b525b) [Niharika Rawat](https://www.linkedin.com/in/niharika-rawat-0776a8280/)
 - GitHub: [priyankapatwal](https://github.com/priyankapatwa) [niharikarawat](https://github.com/Niharika811)
 
 ---
